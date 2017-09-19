@@ -9,7 +9,7 @@
         <javac srcdir="." destdir="build/classes" includeantruntime = "false" fork = "true"/>
     </target>
 
-    <target name="jar">
+    <target name="jar" depends="compile">
         <mkdir dir="build/jar"/>
         <jar destfile="build/jar/project2.jar" basedir="build/classes">
             <manifest>
@@ -18,7 +18,7 @@
         </jar>
     </target>
 
-    <target name="run">
+    <target name="run" depends="jar">
         <java jar="build/jar/project2.jar" fork="true" dir="test"/>
     </target>
 
